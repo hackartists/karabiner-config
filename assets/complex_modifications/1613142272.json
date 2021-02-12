@@ -1,0 +1,40 @@
+{
+  "title": "shift_spacebar to command_spacebar unless Emacs",
+  "maintainers": [
+    "hackaritst"
+  ],
+  "rules": [
+    {
+      "description": "shift_spacebar to command_spacebar unless Emacs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.gnu\\.Emacs$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
